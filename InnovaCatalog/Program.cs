@@ -3,39 +3,48 @@ using InnovaCatalog;
 using InnovaCatalog.DbContexts;
 using InnovaCatalog.Repository;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+    // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-//DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    builder.Services.AddControllers();
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
 
-//AutoMapper
-IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
-builder.Services.AddSingleton(mapper);
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+//Serilog
 
-//Life time dependencies
-builder.Services.AddScoped<ICatalogRepository, CatalogRepository>();
-var app = builder.Build();
+    Log.Logger = new LoggerConfiguration().MinimumLevel.Information()
+    .WriteTo.File("log/InnovaCatalogs.txt",rollingInterval:RollingInterval.Day).CreateLogger();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    builder.Host.UseSerilog();
 
-app.UseHttpsRedirection();
+    //DbContext
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-app.UseAuthorization();
+    //AutoMapper
+    IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+    builder.Services.AddSingleton(mapper);
+    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-app.MapControllers();
+    //Life time dependencies
+    builder.Services.AddScoped<ICatalogRepository, CatalogRepository>();
+    var app = builder.Build();
 
-app.Run();
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();
