@@ -5,7 +5,7 @@
 namespace InnovaCatalog.Migrations
 {
     /// <inheritdoc />
-    public partial class AddDbSetstoDB : Migration
+    public partial class BDCreacion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -44,7 +44,7 @@ namespace InnovaCatalog.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(2,2)", nullable: false),
                     PictureFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PictureUri = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CatalogTypeId = table.Column<int>(type: "int", nullable: false),

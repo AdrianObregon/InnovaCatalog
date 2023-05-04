@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InnovaCatalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230503221245_AgregarCatalogosBD")]
-    partial class AgregarCatalogosBD
+    [Migration("20230504004918_AgregatItem")]
+    partial class AgregatItem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,13 @@ namespace InnovaCatalog.Migrations
                     b.HasKey("CatalogBrandId");
 
                     b.ToTable("CatalogBrands");
+
+                    b.HasData(
+                        new
+                        {
+                            CatalogBrandId = 1,
+                            CatalogBrandName = "CatalogBrandName1"
+                        });
                 });
 
             modelBuilder.Entity("InnovaCatalog.Models.CatalogItem", b =>
@@ -76,7 +83,7 @@ namespace InnovaCatalog.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(2,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("RestockThreshold")
                         .HasColumnType("int");
@@ -151,6 +158,13 @@ namespace InnovaCatalog.Migrations
                     b.HasKey("CatalogTypeId");
 
                     b.ToTable("CatalogTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            CatalogTypeId = 1,
+                            CatalogTypeName = "CatalogTypeName1"
+                        });
                 });
 
             modelBuilder.Entity("InnovaCatalog.Models.CatalogItem", b =>

@@ -3,6 +3,7 @@ using InnovaCatalog.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InnovaCatalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230504004613_BDAgregarDataTypeBrand")]
+    partial class BDAgregarDataTypeBrand
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,7 +83,7 @@ namespace InnovaCatalog.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(2,2)");
 
                     b.Property<int>("RestockThreshold")
                         .HasColumnType("int");
@@ -92,53 +95,6 @@ namespace InnovaCatalog.Migrations
                     b.HasIndex("CatalogTypeId");
 
                     b.ToTable("CatalogItems");
-
-                    b.HasData(
-                        new
-                        {
-                            CatalogId = 1,
-                            AvailableStock = 5,
-                            CatalogBrandId = 1,
-                            CatalogTypeId = 1,
-                            Description = "Descripcion del ejemplo",
-                            MaxStockThreshold = 10,
-                            Name = "Ejemplo",
-                            OnReorder = true,
-                            PictureFileName = "Ejemplo.Jpeg",
-                            PictureUri = "https://benitomango.blob.core.windows.net/mango/14.jpg",
-                            Price = 99.99m,
-                            RestockThreshold = 3
-                        },
-                        new
-                        {
-                            CatalogId = 2,
-                            AvailableStock = 5,
-                            CatalogBrandId = 1,
-                            CatalogTypeId = 1,
-                            Description = "Descripcion del ejemplo 2",
-                            MaxStockThreshold = 10,
-                            Name = "Ejemplo2",
-                            OnReorder = true,
-                            PictureFileName = "Ejemplo2.Jpeg",
-                            PictureUri = "https://benitomango.blob.core.windows.net/mango/12.jpg",
-                            Price = 99.99m,
-                            RestockThreshold = 3
-                        },
-                        new
-                        {
-                            CatalogId = 3,
-                            AvailableStock = 5,
-                            CatalogBrandId = 1,
-                            CatalogTypeId = 1,
-                            Description = "Descripcion del ejemplo 3",
-                            MaxStockThreshold = 10,
-                            Name = "Ejemplo3",
-                            OnReorder = true,
-                            PictureFileName = "Ejemplo3.Jpeg",
-                            PictureUri = "https://benitomango.blob.core.windows.net/mango/13.jpg",
-                            Price = 99.99m,
-                            RestockThreshold = 3
-                        });
                 });
 
             modelBuilder.Entity("InnovaCatalog.Models.CatalogType", b =>

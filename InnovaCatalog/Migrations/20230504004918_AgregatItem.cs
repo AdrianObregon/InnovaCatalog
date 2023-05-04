@@ -7,7 +7,7 @@
 namespace InnovaCatalog.Migrations
 {
     /// <inheritdoc />
-    public partial class AgregarCatalogosBD : Migration
+    public partial class AgregatItem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InnovaCatalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230503164053_fixeddeciamal")]
-    partial class fixeddeciamal
+    [Migration("20230504003002_BDCreacion")]
+    partial class BDCreacion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

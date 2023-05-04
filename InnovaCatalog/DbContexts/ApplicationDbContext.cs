@@ -16,20 +16,32 @@ namespace InnovaCatalog.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CatalogBrand>().HasData(new CatalogBrand
+            {
+               CatalogBrandId=1,
+               CatalogBrandName="CatalogBrandName1"
+
+            });
+            modelBuilder.Entity<CatalogType>().HasData(new CatalogType
+            {
+                CatalogTypeId = 1,
+                CatalogTypeName = "CatalogTypeName1"
+
+            });
             modelBuilder.Entity<CatalogItem>().HasData(new CatalogItem
             {
                 CatalogId = 1,
-                Name="Ejemplo",
-                Description="Descripcion del ejemplo",
-                Price=99.99m,
-                PictureFileName="Ejemplo.Jpeg",
+                Name = "Ejemplo",
+                Description = "Descripcion del ejemplo",
+                Price = 99.99m,
+                PictureFileName = "Ejemplo.Jpeg",
                 PictureUri = "https://benitomango.blob.core.windows.net/mango/14.jpg",
-                CatalogTypeId=1,
-                CatalogBrandId=1,
-                AvailableStock=5,
-                RestockThreshold=3,
-                MaxStockThreshold=10,
-                OnReorder=true
+                CatalogTypeId = 1,
+                CatalogBrandId = 1,
+                AvailableStock = 5,
+                RestockThreshold = 3,
+                MaxStockThreshold = 10,
+                OnReorder = true
 
             });
             modelBuilder.Entity<CatalogItem>().HasData(new CatalogItem

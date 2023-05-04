@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InnovaCatalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230503163610_AddDbSetstoDB")]
-    partial class AddDbSetstoDB
+    [Migration("20230504004757_TempCatalogitem")]
+    partial class TempCatalogitem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,13 @@ namespace InnovaCatalog.Migrations
                     b.HasKey("CatalogBrandId");
 
                     b.ToTable("CatalogBrands");
+
+                    b.HasData(
+                        new
+                        {
+                            CatalogBrandId = 1,
+                            CatalogBrandName = "CatalogBrandName1"
+                        });
                 });
 
             modelBuilder.Entity("InnovaCatalog.Models.CatalogItem", b =>
@@ -104,6 +111,13 @@ namespace InnovaCatalog.Migrations
                     b.HasKey("CatalogTypeId");
 
                     b.ToTable("CatalogTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            CatalogTypeId = 1,
+                            CatalogTypeName = "CatalogTypeName1"
+                        });
                 });
 
             modelBuilder.Entity("InnovaCatalog.Models.CatalogItem", b =>

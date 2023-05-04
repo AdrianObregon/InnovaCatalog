@@ -6,11 +6,12 @@ namespace InnovaCatalog.Models
 {
     public class CatalogItem
     {
+
         [Key]
         public int CatalogId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        [Column(TypeName = "decimal(2,2)")]
+        
         public decimal Price { get; set; }
         public string PictureFileName { get; set; }
         public string PictureUri { get; set; }
