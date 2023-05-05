@@ -19,6 +19,8 @@ namespace InnovaCatalog.Controllers
             _logger = logger;
         }
 
+        /* https://innovacatalogapi.azurewebsites.net/api/CatalogApi */
+
         [HttpGet]
         public async Task<object> Get()
         {
