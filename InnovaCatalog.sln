@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnovaCatalog", "InnovaCatalog\InnovaCatalog.csproj", "{CC7EF96C-D66D-4338-92AF-4169EC9FB5DA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{DDED4C0E-7E3A-49F0-B805-34621F0D785C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnovaCatalog.Web", "InnovaCatalog.Web\InnovaCatalog.Web.csproj", "{1522CD66-0D9B-4E9C-AF5C-5E2A3280ACB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnovaCatalog", "InnovaCatalog\InnovaCatalog.csproj", "{CC7EF96C-D66D-4338-92AF-4169EC9FB5DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +15,9 @@ Global
 		{CC7EF96C-D66D-4338-92AF-4169EC9FB5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC7EF96C-D66D-4338-92AF-4169EC9FB5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC7EF96C-D66D-4338-92AF-4169EC9FB5DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1522CD66-0D9B-4E9C-AF5C-5E2A3280ACB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1522CD66-0D9B-4E9C-AF5C-5E2A3280ACB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1522CD66-0D9B-4E9C-AF5C-5E2A3280ACB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1522CD66-0D9B-4E9C-AF5C-5E2A3280ACB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{1522CD66-0D9B-4E9C-AF5C-5E2A3280ACB5} = {DDED4C0E-7E3A-49F0-B805-34621F0D785C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {003231E4-22CF-44B4-A98F-66890AF4C289}
