@@ -8,7 +8,7 @@ namespace InnovaCatalog.Controllers
 {
     [Route("api/CatalogAPI")]
     [ApiController]
-    public class InnovaCatalogAPIController:ControllerBase
+    public class InnovaCatalogAPIController : ControllerBase
     {
         protected ResponseDto _response;
         private ICatalogRepository _catalogRepository;
@@ -16,18 +16,19 @@ namespace InnovaCatalog.Controllers
         public InnovaCatalogAPIController(ICatalogRepository catalogRepository, ILogger<InnovaCatalogAPIController> logger)
         {
             _catalogRepository = catalogRepository;
-            this._response = new ResponseDto(); 
+            this._response = new ResponseDto();
             _logger = logger;
         }
 
         /* https://innovacatalogapi.azurewebsites.net/api/CatalogApi */
 
         [HttpGet]
-        
+        [Authorize]
+
         public async Task<object> Get()
         {
 
-            try { 
+            try {
                 IEnumerable<CatalogDto> catalogDtos = await _catalogRepository.GetCatalogs();
                 _response.Result = catalogDtos;
                 _logger.LogInformation("Getting all InnovaCatalogs");
@@ -35,20 +36,21 @@ namespace InnovaCatalog.Controllers
             catch (Exception ex)
             {
                 _response.IsSuccess = false;
-                _response.ErrorMessages 
+                _response.ErrorMessages
                     = new List<string>() { ex.ToString() };
                 _logger.LogInformation("Error at getting all InnovaCatalogs");
             }
 
             return _response;
         }
-        
+
         [HttpGet]
         [Route("{id}")]
+        [Authorize]
         public async Task<object> Get(int id)
         {
 
-            try { 
+            try {
                 CatalogDto catalogDtos = await _catalogRepository.GetCatalogById(id);
                 _response.Result = catalogDtos;
                 _logger.LogInformation("Getting the InnovaCatalog with id: " + id);
@@ -56,7 +58,7 @@ namespace InnovaCatalog.Controllers
             catch (Exception ex)
             {
                 _response.IsSuccess = false;
-                _response.ErrorMessages 
+                _response.ErrorMessages
                     = new List<string>() { ex.ToString() };
                 _logger.LogInformation("Error at getting the InnovaCatalog");
             }
@@ -65,9 +67,10 @@ namespace InnovaCatalog.Controllers
         }
 
         [HttpPost]
-        
+        [Authorize]
 
-        public async Task<object> Post([FromBody]CatalogDto catalogDto)
+
+        public async Task<object> Post([FromBody] CatalogDto catalogDto)
         {
 
             try
@@ -88,7 +91,8 @@ namespace InnovaCatalog.Controllers
         }
 
         [HttpPut]
-        
+        [Authorize]
+
 
         public async Task<object> Put([FromBody] CatalogDto catalogDto)
         {
@@ -110,9 +114,11 @@ namespace InnovaCatalog.Controllers
             return _response;
         }
 
-        
+
         [HttpDelete]
-        
+        [Authorize(Roles = "Admin")]
+        [Route("{id}")]
+
         public async Task<object> Delete(int id)
         {
 

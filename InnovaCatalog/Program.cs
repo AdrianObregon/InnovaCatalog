@@ -2,10 +2,13 @@ using AutoMapper;
 using InnovaCatalog;
 using InnovaCatalog.DbContexts;
 using InnovaCatalog.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+
 
 //Serilog
 
@@ -35,6 +39,10 @@ var builder = WebApplication.CreateBuilder(args);
     //Life time dependencies
     builder.Services.AddScoped<ICatalogRepository, CatalogRepository>();
     var app = builder.Build();
+
+
+
+
 
 
 
