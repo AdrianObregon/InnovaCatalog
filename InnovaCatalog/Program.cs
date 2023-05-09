@@ -3,6 +3,8 @@ using InnovaCatalog;
 using InnovaCatalog.DbContexts;
 using InnovaCatalog.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,8 +36,10 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddScoped<ICatalogRepository, CatalogRepository>();
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
+
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
         app.UseSwaggerUI();

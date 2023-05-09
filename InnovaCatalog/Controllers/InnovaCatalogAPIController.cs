@@ -1,6 +1,7 @@
 ﻿using InnovaCatalog.Models;
 using InnovaCatalog.Models.Dto;
 using InnovaCatalog.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InnovaCatalog.Controllers
@@ -22,6 +23,7 @@ namespace InnovaCatalog.Controllers
         /* https://innovacatalogapi.azurewebsites.net/api/CatalogApi */
 
         [HttpGet]
+        
         public async Task<object> Get()
         {
 
@@ -40,7 +42,7 @@ namespace InnovaCatalog.Controllers
 
             return _response;
         }
-
+        
         [HttpGet]
         [Route("{id}")]
         public async Task<object> Get(int id)
@@ -64,6 +66,7 @@ namespace InnovaCatalog.Controllers
 
         [HttpPost]
         
+
         public async Task<object> Post([FromBody]CatalogDto catalogDto)
         {
 
@@ -85,6 +88,7 @@ namespace InnovaCatalog.Controllers
         }
 
         [HttpPut]
+        
 
         public async Task<object> Put([FromBody] CatalogDto catalogDto)
         {
@@ -106,8 +110,9 @@ namespace InnovaCatalog.Controllers
             return _response;
         }
 
+        
         [HttpDelete]
-
+        
         public async Task<object> Delete(int id)
         {
 

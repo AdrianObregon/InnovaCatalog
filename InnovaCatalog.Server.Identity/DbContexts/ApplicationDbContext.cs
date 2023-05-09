@@ -14,6 +14,8 @@ namespace InnovaCatalog.Server.Identity.DbContexts
 
         }
 
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
 
 
     }
