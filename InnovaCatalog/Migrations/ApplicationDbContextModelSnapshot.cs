@@ -138,6 +138,21 @@ namespace InnovaCatalog.Migrations
                             PictureUri = "https://benitomango.blob.core.windows.net/mango/13.jpg",
                             Price = 99.99m,
                             RestockThreshold = 3
+                        },
+                        new
+                        {
+                            CatalogId = 4,
+                            AvailableStock = 5,
+                            CatalogBrandId = 1,
+                            CatalogTypeId = 1,
+                            Description = "Descripcion del ejemplo 3",
+                            MaxStockThreshold = 10,
+                            Name = "Ejemplo3",
+                            OnReorder = true,
+                            PictureFileName = "Ejemplo3.Jpeg",
+                            PictureUri = "https://benitomango.blob.core.windows.net/mango/13.jpg",
+                            Price = 99.99m,
+                            RestockThreshold = 3
                         });
                 });
 

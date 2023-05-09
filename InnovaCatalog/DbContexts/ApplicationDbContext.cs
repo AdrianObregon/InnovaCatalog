@@ -18,8 +18,8 @@ namespace InnovaCatalog.DbContexts
         {
             modelBuilder.Entity<CatalogBrand>().HasData(new CatalogBrand
             {
-               CatalogBrandId=1,
-               CatalogBrandName="CatalogBrandName1"
+                CatalogBrandId = 1,
+                CatalogBrandName = "CatalogBrandName1"
 
             });
             modelBuilder.Entity<CatalogType>().HasData(new CatalogType
@@ -63,6 +63,22 @@ namespace InnovaCatalog.DbContexts
             modelBuilder.Entity<CatalogItem>().HasData(new CatalogItem
             {
                 CatalogId = 3,
+                Name = "Ejemplo3",
+                Description = "Descripcion del ejemplo 3",
+                Price = 99.99m,
+                PictureFileName = "Ejemplo3.Jpeg",
+                PictureUri = "https://benitomango.blob.core.windows.net/mango/13.jpg",
+                CatalogTypeId = 1,
+                CatalogBrandId = 1,
+                AvailableStock = 5,
+                RestockThreshold = 3,
+                MaxStockThreshold = 10,
+                OnReorder = true
+
+            });
+            modelBuilder.Entity<CatalogItem>().HasData(new CatalogItem
+            {
+                CatalogId = 4,
                 Name = "Ejemplo3",
                 Description = "Descripcion del ejemplo 3",
                 Price = 99.99m,

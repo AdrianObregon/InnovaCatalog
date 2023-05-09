@@ -45,7 +45,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
     {
