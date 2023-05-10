@@ -23,6 +23,7 @@ namespace InnovaCatalog.Controllers
         /* https://innovacatalogapi.azurewebsites.net/api/CatalogApi */
 
         [HttpGet]
+        [Authorize]
         
 
         public async Task<object> Get()
@@ -45,6 +46,7 @@ namespace InnovaCatalog.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("{id}")]
         
         public async Task<object> Get(int id)
@@ -67,7 +69,8 @@ namespace InnovaCatalog.Controllers
         }
 
         [HttpPost]
-        
+        [Authorize(Roles ="admin")]
+
 
 
         public async Task<object> Post([FromBody] CatalogDto catalogDto)
@@ -91,8 +94,7 @@ namespace InnovaCatalog.Controllers
         }
 
         [HttpPut]
-        
-
+        [Authorize(Roles = "admin")]
 
         public async Task<object> Put([FromBody] CatalogDto catalogDto)
         {
@@ -117,7 +119,7 @@ namespace InnovaCatalog.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-
+        [Authorize(Roles = "admin")]
         public async Task<object> Delete(int id)
         {
 
