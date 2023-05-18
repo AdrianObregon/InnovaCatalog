@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using OnisCatalog.Orders.DbContexts;
-using OnisCatalog.Orders.Repository;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,12 +6,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//Life time dependencies
-builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var app = builder.Build();
 
