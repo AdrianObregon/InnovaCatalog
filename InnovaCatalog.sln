@@ -5,7 +5,11 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnovaCatalog", "InnovaCatalog\InnovaCatalog.csproj", "{CC7EF96C-D66D-4338-92AF-4169EC9FB5DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnovaCatalogNUnitTest.Test", "InnovaCatalogNUnitTest.Test\InnovaCatalogNUnitTest.Test.csproj", "{D1FBCFA8-F999-4A14-8856-75D477E846BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnovaCatalogNUnitTest.Test", "InnovaCatalogNUnitTest.Test\InnovaCatalogNUnitTest.Test.csproj", "{D1FBCFA8-F999-4A14-8856-75D477E846BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Onis.Orders", "Onis.Orders", "{F9F5D89B-477A-442D-B3AB-F8BA3415CECD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnisCatalog.Orders", "OnisCatalog.Orders\OnisCatalog.Orders.csproj", "{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{D1FBCFA8-F999-4A14-8856-75D477E846BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1FBCFA8-F999-4A14-8856-75D477E846BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1FBCFA8-F999-4A14-8856-75D477E846BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA} = {F9F5D89B-477A-442D-B3AB-F8BA3415CECD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {003231E4-22CF-44B4-A98F-66890AF4C289}
