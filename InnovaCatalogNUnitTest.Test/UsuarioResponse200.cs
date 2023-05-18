@@ -35,10 +35,11 @@ namespace InnovaCatalogNUnitTest.Test
                 Token = "Admin123"
             });
 
-            var controller = new UsuarioController(usuarioRepoMock.Object);
 
             // Act
-            var result = await controller.Login(modelo);
+
+            var sut = new UsuarioController(usuarioRepoMock.Object);
+            var result = await sut.Login(modelo);
 
             // Assert
             Assert.IsInstanceOf<OkObjectResult>(result);
