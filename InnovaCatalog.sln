@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnovaCatalogNUnitTest.Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Onis.Orders", "Onis.Orders", "{F9F5D89B-477A-442D-B3AB-F8BA3415CECD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnisCatalog.Orders", "OnisCatalog.Orders\OnisCatalog.Orders.csproj", "{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Onis.Basket", "Onis.Basket", "{5439DDAC-2754-4B75-9970-EC5E5B09C4DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnisCatalog.Basket", "OnisCatalog.Basket\OnisCatalog.Basket.csproj", "{FC89B1A9-608C-406E-84B6-72CCD56C98B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnisCatalog.Basket", "OnisCatalog.Basket\OnisCatalog.Basket.csproj", "{FC89B1A9-608C-406E-84B6-72CCD56C98B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnisOrdersAPI", "OnisOrdersAPI\OnisOrdersAPI.csproj", "{057298E7-9BD7-4E00-9220-1FC251FFFC83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,21 +29,21 @@ Global
 		{D1FBCFA8-F999-4A14-8856-75D477E846BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1FBCFA8-F999-4A14-8856-75D477E846BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1FBCFA8-F999-4A14-8856-75D477E846BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC89B1A9-608C-406E-84B6-72CCD56C98B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC89B1A9-608C-406E-84B6-72CCD56C98B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC89B1A9-608C-406E-84B6-72CCD56C98B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC89B1A9-608C-406E-84B6-72CCD56C98B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057298E7-9BD7-4E00-9220-1FC251FFFC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057298E7-9BD7-4E00-9220-1FC251FFFC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057298E7-9BD7-4E00-9220-1FC251FFFC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057298E7-9BD7-4E00-9220-1FC251FFFC83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4C0DAAC4-EB3A-4483-B8FB-D8AB35F942AA} = {F9F5D89B-477A-442D-B3AB-F8BA3415CECD}
 		{FC89B1A9-608C-406E-84B6-72CCD56C98B5} = {5439DDAC-2754-4B75-9970-EC5E5B09C4DF}
+		{057298E7-9BD7-4E00-9220-1FC251FFFC83} = {F9F5D89B-477A-442D-B3AB-F8BA3415CECD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {003231E4-22CF-44B4-A98F-66890AF4C289}
