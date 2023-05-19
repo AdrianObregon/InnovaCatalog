@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Onis.Basket", "Onis.Basket"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnisCatalog.Basket", "OnisCatalog.Basket\OnisCatalog.Basket.csproj", "{FC89B1A9-608C-406E-84B6-72CCD56C98B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnisOrdersAPI", "OnisOrdersAPI\OnisOrdersAPI.csproj", "{057298E7-9BD7-4E00-9220-1FC251FFFC83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnisOrdersAPI", "OnisOrdersAPI\OnisOrdersAPI.csproj", "{057298E7-9BD7-4E00-9220-1FC251FFFC83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

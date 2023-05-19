@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using OnisOrdersAPI;
 using OnisOrdersAPI.DbContexts;
 using OnisOrdersAPI.Repository;
+using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,26 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Lifetime 
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
+builder.Services.AddSingleton<IConnection>(sp =>
+{
+    var factory = new ConnectionFactory()
+    {
+        HostName = "localhost", // Cambia esto con la dirección IP o nombre de host de tu servidor RabbitMQ
+        UserName = "guest", // Cambia esto con tu nombre de usuario de RabbitMQ
+        Password = "guest" // Cambia esto con tu contraseña de RabbitMQ
+    };
+
+    return factory.CreateConnection();
+});
+
+
+
+
 var app = builder.Build();
+
+
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

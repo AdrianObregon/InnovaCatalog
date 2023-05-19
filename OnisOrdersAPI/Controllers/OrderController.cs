@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using EasyNetQ;
 using Microsoft.AspNetCore.Mvc;
 using OnisOrdersAPI.Models.Dto;
 using OnisOrdersAPI.Repository;
+using RabbitMQ.Client;
+using System.Text;
 
 namespace OnisOrdersAPI.Controllers
 {
@@ -11,11 +13,17 @@ namespace OnisOrdersAPI.Controllers
     {
         protected ResponseDto _response;
         private IOrderRepository  _orderRepository;
-        
-        public OrderController(IOrderRepository orderRepository)
+        private readonly IConnection _rabbitMQConnection;
+
+
+
+        public OrderController(IOrderRepository orderRepository, IConnection rabbitMQConnection)
         {
             _orderRepository = orderRepository;
             this._response = new ResponseDto();
+            _rabbitMQConnection = rabbitMQConnection;
+
+
         }
 
         [HttpGet]
@@ -67,13 +75,27 @@ namespace OnisOrdersAPI.Controllers
         [HttpPost]
         public async Task<object> Post([FromBody] OrderItemDto orderDto)
         {
+             //Esto para rabbit mq
 
+            using (var channel = _rabbitMQConnection.CreateModel())
+            {
+                OrderItemDto model = await _orderRepository.CreateUpdateOrder(orderDto);
+                _response.Result = model;
 
-            OrderItemDto model = await _orderRepository.CreateUpdateOrder(orderDto);
-            _response.Result = model;
-            
+                // Configuración de intercambio y enrutamiento
+                string exchangeName = "orderExcahnge";
+                string routingKey = "myRoutingKey";
+                string queueName = "myQueue";
 
+                channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
+                channel.QueueDeclare(queueName, true, false, false);
+                channel.QueueBind(queueName, exchangeName, routingKey, null);
 
+                var message = System.Text.Json.JsonSerializer.Serialize(orderDto);
+                var body = Encoding.UTF8.GetBytes(message);
+                channel.BasicPublish(exchange: exchangeName, routingKey: routingKey, basicProperties: null, body: body);
+
+            }
 
 
 
