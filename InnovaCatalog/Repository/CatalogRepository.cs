@@ -36,7 +36,7 @@ namespace InnovaCatalog.Repository
         {
             try
             {
-                CatalogItem catalogDto = await _db.CatalogItems.FirstAsync(x=>x.CatalogId == catalogId);
+                CatalogItem catalogDto = await _db.CatalogItems.FirstOrDefaultAsync(x=>x.CatalogId == catalogId);
                 if (catalogDto == null)
                 {
                     return false;

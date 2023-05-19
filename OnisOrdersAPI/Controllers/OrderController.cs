@@ -21,11 +21,21 @@ namespace OnisOrdersAPI.Controllers
         [HttpGet]
         public async Task<object> Get()
         {
-            IEnumerable<OrderItemDto> orderDtos = await _orderRepository.GetOrders();
-            _response.Result = orderDtos;
+            try 
+            {
+                IEnumerable<OrderItemDto> orderDtos = await _orderRepository.GetOrders();
+                _response.Result = orderDtos;
+            }
+            catch (Exception ex) 
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages
+                     = new List<string>() { ex.ToString() };
+            }
+            
             
 
-            return Ok(_response);
+            return _response;
         }
 
         [HttpGet]
@@ -36,8 +46,17 @@ namespace OnisOrdersAPI.Controllers
         {
 
 
-            OrderItemDto orderDtos = await _orderRepository.GetOrderById(id);
-            _response.Result = orderDtos;
+            try
+            {
+                OrderItemDto orderDtos = await _orderRepository.GetOrderById(id);
+                _response.Result = orderDtos;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages
+                     = new List<string>() { ex.ToString() };
+            }
             
 
 
@@ -85,13 +104,17 @@ namespace OnisOrdersAPI.Controllers
         {
 
 
-
-            bool isSuccess = await _orderRepository.DeleteOrder(id);
-            _response.Result = isSuccess;
-            
-
-
-
+            try
+            {
+                bool isSuccess = await _orderRepository.DeleteOrder(id);
+                _response.Result = isSuccess;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages
+                     = new List<string>() { ex.ToString() };
+            }
             return _response;
         }
 

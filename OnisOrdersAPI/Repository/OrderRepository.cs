@@ -33,20 +33,20 @@ namespace OnisOrdersAPI.Repository
             return _mapper.Map<OrderItem, OrderItemDto>(orderItem);
         }
 
-        public async Task<bool> DeleteOrder(int orderId)
+        public async Task<bool> DeleteOrder(int orderItemId)
         {
             try
             {
-                OrderItem orderItem = await _db.OrderItem.FirstAsync(x => x.OrderId == orderId);
+                OrderItem orderItem = await _db.OrderItem.FirstOrDefaultAsync(u => u.OrderItemId == orderItemId);
                 if (orderItem == null)
                 {
                     return false;
                 }
                 _db.OrderItem.Remove(orderItem);
-                _db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -61,7 +61,7 @@ namespace OnisOrdersAPI.Repository
         public async Task<IEnumerable<OrderItemDto>> GetOrders()
         {
             List<OrderItem> orderItem = await _db.OrderItem.ToListAsync();
-            return _mapper.Map<List<OrderItemDto>>(orderItem);//Catalog item a catalog DTO
+            return _mapper.Map<List<OrderItemDto>>(orderItem);//order item a catalog DTO
         }
     }
 }

@@ -6,9 +6,9 @@ namespace OnisOrdersAPI.Models
     {
         [Key]
         public int OrderId { get; set; }
-        public string BuyerId { get; private set; }
-        public DateTimeOffset OrderDate { get; private set; } = DateTimeOffset.Now;
-        public Address ShipToAddress { get; private set; }//Owns Address -Configure in dbcontext
+        public int BuyerId { get;  set; }
+        public DateTimeOffset OrderDate { get;  set; } = DateTimeOffset.Now;
+        public Address ShipToAddress { get;  set; }//Owns Address -Configure in dbcontext
 
         private readonly List<OrderItem> _orderItems = new List<OrderItem>();
 
